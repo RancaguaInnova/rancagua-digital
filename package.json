@@ -25,19 +25,28 @@
     "expo-splash-screen": "~0.6.1",
     "expo-status-bar": "~1.0.2",
     "expo-web-browser": "~8.5.0",
+    "metro-config": "^0.63.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
+    "react-native-elements": "^2.3.2",
     "react-native-gesture-handler": "~1.7.0",
+    "react-native-platform-touchable": "^1.1.1",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",
-    "react-native-web": "~0.13.12"
+    "react-native-vector-icons": "^7.1.0",
+    "react-native-web": "~0.13.12",
+    "react-native-webview": "^10.9.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "babel-plugin-react-native-classname-to-style": "^1.2.2",
+    "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
     "jest-expo": "~39.0.0",
+    "node-sass": "^4.14.1",
+    "react-native-sass-transformer": "^1.4.0",
     "typescript": "~3.9.5"
   },
   "private": true

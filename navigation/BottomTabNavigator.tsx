@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -11,16 +12,18 @@ import HomeScreen from '../screens/HomeScreen';
 import CalendarScreen from '../screens/CalendarScreen';
 import ServicesScreen from '../screens/ServicesScreen';
 import CityScreen from '../screens/CityScreen';
-
+import MoreScreen from '../screens/MoreScreen'
 
 import { BottomTabParamList, TabHomeParamList, TabCalendarParamList, TabServicesParamList, TabCityParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
+
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
-  return (
+
+    return (
     <BottomTab.Navigator
       initialRouteName="home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
@@ -28,37 +31,37 @@ export default function BottomTabNavigator() {
         name="Inicio"
         component={TabHomeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Calendario"
         component={TabCalendarNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="calendar-month" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Servicios"
         component={TabServicesNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="format-list-bulleted" color={color} />,
         }}
       />
       <BottomTab.Screen
         name="Ciudad"
         component={TabCityNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="city-variant-outline" color={color} />,
         }}
       />
-     {/*  <BottomTab.Screen
+       <BottomTab.Screen
         name="Menu"
-        component={TabTwoNavigator}
+        component={MoreScreen}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="menu" color={color} />,
         }}
-      /> */}
+      />
     </BottomTab.Navigator>
   );
 }
@@ -66,7 +69,7 @@ export default function BottomTabNavigator() {
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
 function TabBarIcon(props: { name: string; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+  return  <Icon  style={{ marginBottom: -3 }} {...props}  size={30}  />//<Ionicons size={30}/>;
 }
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
@@ -128,5 +131,16 @@ function TabCityNavigator() {
   );
 }
 
-
+const TabMoreStack = createStackNavigator<TabMoreParamList>();
+function TabMoreNavigator() {
+    return (
+        <TabCityStack.Navigator>
+            <TabCityStack.Screen
+                name=" "
+                component={MoreScreen}
+               // options={{ headerTitle: 'Ciudad' }}
+            />
+        </TabCityStack.Navigator>
+    );
+}
 
