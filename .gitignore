@@ -11,3 +11,11 @@ web-build/
 
 # macOS
 .DS_Store
+/.idea/codestream.xml
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/watcherTasks.xml
+/.idea/vcs.xml
+/.idea/rancagua-digital.iml
+/.idea/inspectionProfiles/Project_Default.xml
