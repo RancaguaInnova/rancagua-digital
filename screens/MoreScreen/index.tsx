@@ -1,6 +1,8 @@
 import * as React from "react";
-import { Avatar, Card, Icon } from "react-native-elements";
-import { Text, View, ListItem, ViewHeader, TextUser, Divider,Link } from "./styles";
+import { View, Text } from "react-native";
+import { Avatar, Card, Icon, ListItem, Divider, Link } from "react-native-elements";
+
+import Styles from './styles'
 
 
 export default function MoreScreen() {
@@ -58,28 +60,42 @@ export default function MoreScreen() {
   ];
 
   return (
-    <View>
-      <ViewHeader>
+    <View style={Styles.container}>
+      <View style={Styles.avatarContainer}>
         <Avatar
           rounded
           icon={{ name: "user", type: "font-awesome" }}
           size="large"
           overlayContainerStyle={{ backgroundColor: "#DE003E" }}
         />
-        <TextUser>Invitado </TextUser>
-      </ViewHeader>
+        <Text>Invitado s</Text>
+      </View>
       <Divider />
-      {list.map((item, i) => (
-        <Link to={item.link} key={i} >
-          <ListItem bottomDivider>
-            <Icon {...item.icon} />
+      <View style={Styles.listContainer}>
+      
+         <ListItem key={1}>
+            <Icon name='sign-in' type='font-awesome' color='red' />
             <ListItem.Content>
-              <ListItem.Title> {item.title} </ListItem.Title>
+              <ListItem.Title>ACA EL TITULO {/* {item.title}  */}</ListItem.Title>
+              <ListItem.Subtitle>que sucede</ListItem.Subtitle>
             </ListItem.Content>
-            <ListItem.Chevron />
-          </ListItem>
-        </Link>
-      ))}
+           {/*  <ListItem.Chevron /> */}
+          </ListItem> 
+        {/* <Text> asas</Text> */}
+      </View>
     </View>
   );
 }
+
+
+    /* list.map((item, i) => (
+          <ListItem key={i}>
+            <Icon {...item.icon} />
+            <ListItem.Content>
+              <ListItem.Title>ACA EL TITULO {item.title} </ListItem.Title>
+              <ListItem.Subtitle>que sucede</ListItem.Subtitle>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem> 
+       
+      ))} */
