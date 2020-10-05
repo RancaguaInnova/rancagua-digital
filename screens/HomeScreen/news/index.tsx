@@ -11,6 +11,7 @@ import Constants from 'expo-constants';
 // @ts-ignore
 import style from "./styles.scss"
 import Icon from 'react-native-vector-icons/AntDesign';
+import * as WebBrowser from 'expo-web-browser';
 
 export default function HomeScreen() {
     const {theme} = useContext(ThemeContext);
@@ -57,12 +58,9 @@ export default function HomeScreen() {
         },
     ]
 
-    const openWebview = (l: any) => {
+    const openWebview = async (l: any) => {
 
-        setShowModal(true);
-        setDataSelect(l)
-        console.log(dataSelect)
-        console.log("showModal", showModal)
+      let result =  await WebBrowser.openBrowserAsync(l.url);
 
 
     }
