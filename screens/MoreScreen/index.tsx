@@ -1,30 +1,85 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import * as React from "react";
+import { Avatar, Card, Icon } from "react-native-elements";
+import { Text, View, ListItem, ViewHeader, TextUser, Divider,Link } from "./styles";
 
-import { Text, View } from '../../components/Themed';
 
-export default function ServicesScreen() {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Servicios</Text>
-            <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-        </View>
-    );
+export default function MoreScreen() {
+  const list = [
+    {
+      title: "Login",
+      icon: {
+        name: "sign-in",
+        type: "font-awesome",
+        color: "#DE003E",
+        reverse: true,
+      },
+      link: "/login",
+    },
+    {
+      title: "Editar Perfil",
+      icon: {
+        name: "user",
+        type: "font-awesome",
+        color: "#DE003E",
+        reverse: true,
+      },
+      link: "/NotFound",
+    },
+    {
+      title: "Mis Entradas",
+      icon: {
+        name: "ticket",
+        type: "font-awesome",
+        color: "#DE003E",
+        reverse: true,
+      },
+      link: "/NotFound",
+    },
+    {
+      title: "Suscripciones",
+      icon: {
+        name: "check-square-o",
+        type: "font-awesome",
+        color: "#DE003E",
+        reverse: true,
+      },
+      link: "/NotFound",
+    },
+    {
+      title: "Cerrar Sesión",
+      icon: {
+        name: "sign-out",
+        type: "font-awesome",
+        color: "#DE003E",
+        reverse: true,
+      },
+      link: "/NotFound",
+    },
+  ];
+
+  return (
+    <View>
+      <ViewHeader>
+        <Avatar
+          rounded
+          icon={{ name: "user", type: "font-awesome" }}
+          size="large"
+          overlayContainerStyle={{ backgroundColor: "#DE003E" }}
+        />
+        <TextUser>Invitado </TextUser>
+      </ViewHeader>
+      <Divider />
+      {list.map((item, i) => (
+        <Link to={item.link} key={i} >
+          <ListItem bottomDivider>
+            <Icon {...item.icon} />
+            <ListItem.Content>
+              <ListItem.Title> {item.title} </ListItem.Title>
+            </ListItem.Content>
+            <ListItem.Chevron />
+          </ListItem>
+        </Link>
+      ))}
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    separator: {
-        marginVertical: 30,
-        height: 1,
-        width: '80%',
-    },
-});

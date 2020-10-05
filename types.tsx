@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   Root: undefined;
   NotFound: undefined;
+  Login: undefined;
 };
 
 // Tabs
@@ -9,6 +10,7 @@ export type BottomTabParamList = {
   TabCalendar: undefined;
   TabServices: undefined;
   TabCity: undefined;
+  TabMoore:undefined;
 };
 
 export type TabHomeParamList = {
@@ -22,4 +24,7 @@ export type TabServicesParamList = {
 };
 export type TabCityParamList = {
   TabServicesScreen: undefined;
+};
+export type TabMoreParamList = {
+  TabMooreScreen: undefined
 };

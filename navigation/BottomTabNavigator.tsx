@@ -14,15 +14,13 @@ import ServicesScreen from '../screens/ServicesScreen';
 import CityScreen from '../screens/CityScreen';
 import MoreScreen from '../screens/MoreScreen'
 
-import { BottomTabParamList, TabHomeParamList, TabCalendarParamList, TabServicesParamList, TabCityParamList } from '../types';
+import { BottomTabParamList, TabHomeParamList, TabCalendarParamList, TabServicesParamList, TabCityParamList,TabMoreParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
-
-
     return (
     <BottomTab.Navigator
       initialRouteName="home"
@@ -134,13 +132,13 @@ function TabCityNavigator() {
 const TabMoreStack = createStackNavigator<TabMoreParamList>();
 function TabMoreNavigator() {
     return (
-        <TabCityStack.Navigator>
-            <TabCityStack.Screen
+        <TabMoreStack.Navigator>
+            <TabMoreStack.Screen
                 name=" "
                 component={MoreScreen}
                // options={{ headerTitle: 'Ciudad' }}
             />
-        </TabCityStack.Navigator>
+        </TabMoreStack.Navigator>
     );
 }
 
