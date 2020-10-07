@@ -15,6 +15,9 @@ const Styles = StyleSheet.create({
     paddingTop: 20,
     width: '100%',
   },
+  listItem: {
+    marginBottom: 4,
+  },
   menuTitle: {
     /* backgroundColor: 'red', */
     fontSize: 16,

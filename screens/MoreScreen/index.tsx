@@ -78,32 +78,20 @@ export default function MoreScreen() {
       </View>
       <Divider />
       <View style={Styles.listContainer}>
-        <ListItem key={1}>
-          <Icon name='chevron-left' type='font-awesome' color='#ed1947' />
-          <ListItem.Content>
-            <ListItem.Title style={Styles.menuTitle}>
-              ACA EL TITULO {/* {item.title}  */}
-            </ListItem.Title>
-           {/*  <ListItem.Subtitle style={Styles.menuSubtitle}>
+        {list.map((item, i) => (
+          <ListItem key={i} style={Styles.listItem}>
+            <Icon name='chevron-left' type='font-awesome' color='#ed1947' />
+            <ListItem.Content>
+              <ListItem.Title style={Styles.menuTitle}>
+                {item.title}
+              </ListItem.Title>
+              {/*  <ListItem.Subtitle style={Styles.menuSubtitle}>
               que sucede
             </ListItem.Subtitle> */}
-          </ListItem.Content>
-          {/*  <ListItem.Chevron /> */}
-        </ListItem>
-        {/* <Text> asas</Text> */}
+            </ListItem.Content>
+          </ListItem>
+        ))}
       </View>
     </View>
   )
 }
-
-/* list.map((item, i) => (
-          <ListItem key={i}>
-            <Icon {...item.icon} />
-            <ListItem.Content>
-              <ListItem.Title>ACA EL TITULO {item.title} </ListItem.Title>
-              <ListItem.Subtitle>que sucede</ListItem.Subtitle>
-            </ListItem.Content>
-            <ListItem.Chevron />
-          </ListItem> 
-       
-      ))} */
