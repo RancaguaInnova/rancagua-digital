@@ -1,5 +1,11 @@
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
+import { ApolloProvider } from 'react-apollo'
+import { Provider } from 'react-redux'
+
+import { client } from './providers/ApolloProvider'
+import store from './providers/StateProvider'
+
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Button, ThemeProvider } from 'react-native-elements'
 
@@ -16,10 +22,14 @@ export default function App() {
     } else {
         return (
             <SafeAreaProvider>
-                <ThemeProvider>
-                    <Navigation colorScheme={colorScheme} />
-                    <StatusBar />
-                </ThemeProvider>
+                <ApolloProvider client={client}>
+                    <Provider store={store}>
+                        <ThemeProvider>
+                            <Navigation colorScheme={colorScheme} />
+                            <StatusBar />
+                        </ThemeProvider>
+                    </Provider>
+                </ApolloProvider>
             </SafeAreaProvider>
         )
     }
